@@ -1,0 +1,22 @@
+version: '1'
+
+services:
+  HelloWorld:
+    build: ./Helloworld/.
+      volumes:
+       - ./HelloWorld:/app
+      networks:
+       - mongoDB-Network
+	  
+  Apache:
+    build: ./Apache/.
+      volumes:
+       - ./Apche:/app
+      ports:
+       - "81:80"
+	
+  MongoDB:
+    build: ./mongoDB/.
+      networks:
+       - mongoDB-Network
+	  
